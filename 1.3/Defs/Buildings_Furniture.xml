@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+
+  <ThingDef ParentName="FurnitureWithQualityBase">
+    <defName>TESTAnimalBed</defName>
+    <thingClass>Building_Bed</thingClass>
+    <label>test animal bed</label>
+    <description>A soft bed for animals to sleep on. Fits any animal.</description>
+    <rotatable>false</rotatable>
+    <fillPercent>0.15</fillPercent>
+    <pathCost>14</pathCost>
+    <passability>PassThroughOnly</passability>
+    <canOverlapZones>false</canOverlapZones>
+    <graphicData>
+      <texPath>Things/Building/Misc/AnimalBed/AnimalBed</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>3</drawSize>
+    </graphicData>
+	<size>(3, 3)</size>
+    <castEdgeShadows>true</castEdgeShadows>
+    <uiIconScale>0.80</uiIconScale>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <costStuffCount>40</costStuffCount>
+    <building>
+      <bed_humanlike>false</bed_humanlike>
+      <bed_showSleeperBody>true</bed_showSleeperBody>
+      <bed_healPerDay>4</bed_healPerDay>
+      <destroySound>BuildingDestroyed_Soft_Small</destroySound>
+    </building>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>140</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <WorkToBuild>400</WorkToBuild>
+      <Mass>5</Mass>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <Comfort>0.75</Comfort>
+      <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_AssignableToPawn">
+        <drawAssignmentOverlay>false</drawAssignmentOverlay>
+        <compClass>CompAssignableToPawn_Bed</compClass>
+      </li>
+	  <li Class="SleepTileSetter.CompProperties_SleepingTileSetter">
+		<disallowedCells> <!-- this is a grid of disallowed cells -->
+			<li>(0, 0, 0)</li>
+			<li>(0, 0, 1)</li>
+			<li>(0, 0, 2)</li>
+			<li>(1, 0, 0)</li>
+			<!-->(1, 0, 1) is allowed cell -->
+			<li>(1, 0, 2)</li>
+			<li>(2, 0, 0)</li>
+			<li>(2, 0, 1)</li>
+			<li>(2, 0, 2)</li>
+		</disallowedCells>
+	  </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="ArtableBedBase">
+    <defName>TESTDoubleBed</defName>
+    <label>test double bed</label>
+    <description>A simple double-wide bed that fits two people.</description>
+    <graphicData>
+      <texPath>Things/Building/Furniture/Bed/DoubleBed</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(4.05,4.05)</drawSize>
+      <damageData>
+        <rect>(0,0.05,2,1.95)</rect>
+      </damageData>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>EndTable</li>
+          <li>Dresser</li>
+          <li MayRequire="Ludeon.RimWorld.Ideology">SleepAccelerator</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <WorkToBuild>1500</WorkToBuild>
+      <Mass>50</Mass>
+      <Comfort>0.75</Comfort>
+      <Beauty>2</Beauty>
+      <BedRestEffectiveness>1</BedRestEffectiveness>
+      <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+      <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+    </statBases>
+    <size>(4,4)</size>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>85</costStuffCount>
+    <building>
+      <bed_showSleeperBody>False</bed_showSleeperBody>
+      <bed_healPerDay>4</bed_healPerDay>
+    </building>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <fillPercent>0.4</fillPercent>
+    <pathCost>42</pathCost>
+    <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+    <staticSunShadowHeight>0.17</staticSunShadowHeight>
+    <castEdgeShadows>True</castEdgeShadows>
+    <designationHotKey>Misc3</designationHotKey>
+    <techLevel>Medieval</techLevel>
+    <researchPrerequisites>
+      <li>ComplexFurniture</li>
+    </researchPrerequisites>
+    <uiIconScale>0.90</uiIconScale>
+  </ThingDef>
+
+
+</Defs>
